@@ -9,8 +9,14 @@ class SongsController < ApplicationController
     redirect_to artist_path(params[:artist_id])
   end
 
+  def destroy
+    @song = Song.find(params[:id])
+    @song.destroy
+    redirect_to artist_path(params[:artist_id])
+  end
+
   private
   def song_params
     params.require(:song).permit(:name,:description,:youtube_link)
-  end 
+  end
 end
