@@ -3,7 +3,9 @@
 <h3>Songs</h3>
 <% @artist.songs.each do |song| %>
   <ul>
-    <li><%= song.name %></li>
+    <li><%= song.name %>
+        <%= link_to "Delete", artist_song_path(@artist.id,song.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
   </ul>
 <%end %>
 
