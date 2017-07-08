@@ -1,0 +1,12 @@
+<%= form_for [@artist,@artist.songs.new] do |f| %>
+  <label>Name</label>
+  <%= f.text_field :name, placeholder: "Name" %>
+
+  <label>Youtube Link</label>
+  <%= f.text_field :youtube_link, placeholder: "Add a youtube link here" %>
+
+  <label>Description</label>
+  <%= f.text_field :description, placeholder: "Add some descriptions" %>
+
+  <%= f.submit "Create" %>
+<% end %>
