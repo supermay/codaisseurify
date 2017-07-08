@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
-  def new
-    @song = Song.new
-  end
+  # def new
+  #   @song = Song.new
+  # end
 
   def create
     @song = Song.create(song_params.merge(artist_id: params[:artist_id]))
