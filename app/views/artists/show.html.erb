@@ -6,3 +6,6 @@
     <li><%= song.name %></li>
   </ul>
 <%end %>
+
+<%= link_to "Delete this artist", artist_path(@artist.id), method: :delete,
+data: { confirm: "Are you sure to delete this lovely artist?"} %>
