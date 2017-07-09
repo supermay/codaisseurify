@@ -7,10 +7,15 @@
 <div class="row">
   <% @artists.each do |artist|%>
     <div class="col-sm-6 text-center">
-      <h3><b><%= link_to artist.name, artist_path(artist.id) %></b></h3>
-      <h5>Country: <%= artist.country %></h5>
-      <h5>Website: <%= link_to "#{artist.website}", artist.website %></h5>
-      <%= image_tag artist.image.thumbnail %>
+      <div class="form-group">
+        <h3><b><%= link_to artist.name, artist_path(artist.id) %></b></h3>
+      </div>
+      <div class="form-group">
+        <h5>Website: <%= link_to "#{artist.website}", artist.website %></h5>
+      </div>
+      <div class="form-group">
+        <%= image_tag artist.image.thumbnail %>
+      </div>
     </div>
   <%end%>
 </div>

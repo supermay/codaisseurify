@@ -1,16 +1,52 @@
-<h2><%= @artist.name %></h2>
+<div class="jumbotron text-center">
+  <h1>Welcome to Rebelmusic!</h1>
+  <p>Want to check artists?
+  <%= link_to "Click here", artists_path %>
+  </p>
+</div>
 
-<h3>Songs</h3>
-<% @artist.songs.each do |song| %>
+<h1><b><%= @artist.name %></b>
+  <button class="btn btn-default"><%= link_to "Delete this artist", artist_path(@artist.id), method: :delete,
+    data: { confirm: "Are you sure to delete this lovely artist?"} %></button></h1>
+<div class="col-sm-6">
   <ul>
-    <li><%= song.name %>
-        <%= link_to "Delete", artist_song_path(@artist.id,song.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    <li><h3>More information:</h3>
+      <ul>
+        <li>
+          <div class="form-group">
+            <h5>Type: <%= @artist.is_band ? "Band" : "Solo Artist" %></h5>
+          </div>
+        </li>
+        <li>
+          <div class="form-group">
+            <h5>Country: <%= @artist.country %></h5>
+          </div>
+        </li>
+        <li>
+          <div class="form-group">
+            <h5>Website: <%= link_to "#{@artist.website}", @artist.website %></h5>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <h3>Songs</h3>
+      <% @artist.songs.each do |song| %>
+        <ul>
+          <li><div class="form-group"><h5><%= song.name %>
+            <button class="btn btn-default">
+              <%= link_to "Delete this song", artist_song_path(@artist.id,song.id), method: :delete, data: { confirm: "Are you sure?" } %></div>
+            </button></h5>
+          </li>
+        </ul>
+      <%end %>
     </li>
   </ul>
-<%end %>
+<hr />
+  <h4><b>Add a song for this artist?</b></h4>
+  <%= render 'songs/form' %>
+</div>
 
-<h3>Add a song for this artist?</h3>
-<%= render 'songs/form' %>
-
-<%= link_to "Delete this artist", artist_path(@artist.id), method: :delete,
-data: { confirm: "Are you sure to delete this lovely artist?"} %>
+<div class="col-sm-6 text-center">
+  <%= image_tag @artist.image.thumbnail %>
+</div>
