@@ -5,38 +5,38 @@
   </p>
 </div>
 
-<h1><b><%= @artist.name %></b>
-  <button class="btn btn-default"><%= link_to "Delete this artist", artist_path(@artist.id), method: :delete,
-    data: { confirm: "Are you sure to delete this lovely artist?"} %></button></h1>
+<h1><b><%= @artist.name %></b></h1>
+<h4><%= link_to "Delete this artist", artist_path(@artist.id), method: :delete,
+  data: { confirm: "Are you sure to delete this lovely artist?"} %></h4>
 <div class="col-sm-6">
   <ul>
-    <li><h3>More information:</h3>
+    <li><h3><b>More information:</b></h3>
       <ul>
         <li>
           <div class="form-group">
-            <h5>Type: <%= @artist.is_band ? "Band" : "Solo Artist" %></h5>
+            <h5><b>Type: <%= @artist.is_band ? "Band" : "Solo Artist" %></b></h5>
           </div>
         </li>
         <li>
           <div class="form-group">
-            <h5>Country: <%= @artist.country %></h5>
+            <h5><b>Country: <%= @artist.country %></b></h5>
           </div>
         </li>
         <li>
           <div class="form-group">
-            <h5>Website: <%= link_to "#{@artist.website}", @artist.website %></h5>
+            <h5><b>Website: <%= link_to "#{@artist.website}", @artist.website %></b></h5>
           </div>
         </li>
       </ul>
     </li>
     <li>
-      <h3>Songs</h3>
+      <h3><b>Songs</b></h3>
       <% @artist.songs.each do |song| %>
         <ul>
-          <li><div class="form-group"><h5><%= song.name %>
-            <button class="btn btn-default">
-              <%= link_to "Delete this song", artist_song_path(@artist.id,song.id), method: :delete, data: { confirm: "Are you sure?" } %></div>
-            </button></h5>
+          <li><div class="form-group"><h5><b><%= song.name %></b>
+              <%= link_to "Delete this song", artist_song_path(@artist.id,song.id), method: :delete, data: { confirm: "Are you sure?" } %>
+            </div>
+            </h5>
           </li>
         </ul>
       <%end %>
