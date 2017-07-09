@@ -4,6 +4,20 @@
    <%= link_to "Click here", new_artist_path %>
    </p>
 </div>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+       Order by
+    <span class="caret text-center" ></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><%= link_to "Name A to Z", "?sort=a-z" %></li>
+    <li><%= link_to "Name Z to A", "?sort=z-a" %></li>
+    <li><%= link_to "Create Time", "?sort=time" %></li>
+  </ul>
+</div>
+
+
 <div class="row">
   <% @artists.each do |artist|%>
     <div class="col-sm-6 text-center">
