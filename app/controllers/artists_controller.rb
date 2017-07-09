@@ -1,6 +1,17 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.all
+    if params[:sort].present?
+      sortparam = params[:sort]
+      if sortparam == "a-z"
+        @artists = Artist.all.order(:name)
+      elsif sortparam == "z-a"
+        @artists = Artist.all.order(:name).reverse
+      elsif sortparam == "time"
+        @artists = Artist.all.order(:created_at)
+      end
+    else
+      @artists = Artist.all.order(:name)
+    end
   end
 
   def show
