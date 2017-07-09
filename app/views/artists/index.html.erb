@@ -6,7 +6,7 @@
       <div class="col-sm-4" width=30%, height=30%>
       <h3><%= link_to artist.name, artist_path(artist.id) %></h3>
       <h5>Country: <%= artist.country %></h5>
-      <h5>Website: <%= link_to "#{artist.website}" %></h5>
+      <h5>Website: <%= link_to "#{artist.website}", artist.website %></h5>
       <%= image_tag artist.image.thumbnail %>
       </div>
     <%end%>
