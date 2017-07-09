@@ -1,14 +1,16 @@
-<div class="container-fluid">
-  <h1>Welcome to Rebelmusic!</h1>
-  <%= link_to "Add another aritst?", new_artist_path %>
-  <div class="row">
-    <% @artists.each do |artist|%>
-      <div class="col-sm-4" width=30%, height=30%>
-      <h3><%= link_to artist.name, artist_path(artist.id) %></h3>
+<div class="jumbotron text-center">
+   <h1>Welcome to Rebelmusic!</h1>
+   <p>Want to add another artist?
+   <%= link_to "Click here", new_artist_path %>
+   </p>
+</div>
+<div class="row">
+  <% @artists.each do |artist|%>
+    <div class="col-sm-6 text-center">
+      <h3><b><%= link_to artist.name, artist_path(artist.id) %></b></h3>
       <h5>Country: <%= artist.country %></h5>
       <h5>Website: <%= link_to "#{artist.website}", artist.website %></h5>
       <%= image_tag artist.image.thumbnail %>
-      </div>
-    <%end%>
-  </div>
+    </div>
+  <%end%>
 </div>
