@@ -39,7 +39,8 @@ class ArtistsController < ApplicationController
   private
 
   def image_params
-    params[:image].present? ? params.require(:image) : nil
+    # params[:image].present? ? params.require(:image) : nil
+    params[:image]
   end
 
   def artist_params
