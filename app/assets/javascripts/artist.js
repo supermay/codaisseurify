@@ -25,8 +25,3 @@ function submitSong(event) {
   $("#song_description").val(null)
   $("#song_youtube_link").val(null)
 }
-
-
-$(document).ready(function() {
-  $("button").bind('click', submitSong);
-});
