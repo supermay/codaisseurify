@@ -12,7 +12,24 @@ function createSong(name,description,youtubeLink) {
       }),
       contentType: "application/json",
       dataType: "json"
-    });
+    }
+  ).done(function(data){
+      console.log(data);
+
+      var label = $('<label></label>')
+        .attr('for',data.id)
+        .html(name);
+
+      var tableRow = $('<tr class="song"></tr>')
+        .append($('<td>').append(label));
+
+      $("#songList").append( tableRow );
+      })
+  .fail(function(error) {
+    console.log(error)
+    var error_message = error.responseJSON.name[0];
+    window.alert("Song name " + error_message + " !");
+  });
 }
 
 
