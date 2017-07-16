@@ -67,7 +67,10 @@ function deleteSong(songId) {
 
 function deleteAllSongs(event) {
   event.preventDefault();
-
+  $.each($(".song"), function(index, tableRow) {
+    songId = $(tableRow).data('id');
+    deleteSong(songId);
+  });
 }
 
 function deleteOneSong(event) {
