@@ -6,7 +6,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.create(song_params.merge(artist_id: params[:artist_id]))
 
-    respnd_to do |format|
+    respond_to do |format|
       if @song.save
         format.html { redirect_to artist_path(params[:artist_id]), notice: 'Song was created!' }
         format.json { render json: {}, status: :created, location: @song }
