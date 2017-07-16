@@ -72,6 +72,6 @@ function deleteAllSongs(event) {
 
 function deleteOneSong(event) {
   event.preventDefault();
-  var songId = event.toElement.parentNode.parentNode.dataset.id;
+  var songId = event.target.parentNode.parentNode.dataset.id;
   deleteSong(songId);
 }
