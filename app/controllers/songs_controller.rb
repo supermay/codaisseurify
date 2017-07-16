@@ -20,7 +20,10 @@ class SongsController < ApplicationController
   def destroy
     @song = Song.find(params[:id])
     @song.destroy
-    redirect_to artist_path(params[:artist_id])
+    respond_to do |format|
+      format.html { redirect_to artist_path(params[:artist_id]), notice: 'Song was deleted.'}
+      format.json { head :no_content }
+    end 
   end
 
   private

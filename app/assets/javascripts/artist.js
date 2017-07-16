@@ -19,6 +19,12 @@ function createSong(name,description,youtubeLink) {
       var label = $('<label></label>')
         .attr('for',data.id)
         .html(name);
+      //
+      // var a = $('<a></a>')
+      //   .attr('href', '#')
+      //   .attr('id', "delete")
+      //   .html("Delete this song")
+      //   .bind("click",deleteOneSong);
 
       var tableRow = $('<tr class="song"></tr>')
         .append($('<td>').append(label));
@@ -41,4 +47,31 @@ function submitSong(event) {
   $("#song_name").val(null)
   $("#song_description").val(null)
   $("#song_youtube_link").val(null)
+}
+
+
+function deleteSong(songId) {
+  var artistId = window.location.href.split('/').reverse()[0];
+
+  $.ajax({
+    type: "DELETE",
+    url: "/artists/" + artistId + "/songs/" + songId + ".json",
+    contentType: "application/json",
+    dataType: "json"
+  })
+  .done(function(data){
+  $('tr[data-id="'+songId+'"]').remove();
+  });
+}
+
+
+function deleteAllSongs(event) {
+  event.preventDefault();
+
+}
+
+function deleteOneSong(event) {
+  event.preventDefault();
+  var songId = event.toElement.parentNode.parentNode.dataset.id;
+  deleteSong(songId);
 }

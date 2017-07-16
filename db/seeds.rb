@@ -24,7 +24,7 @@ is_band: true,
 website: "http://www.thekinks.info/")
 artist3 = Artist.create!(
 name:"Bob Dylan",
-remote_image_url: "http://res.cloudinary.com/supermay/image/upload/v1499537726/prince_t3nnpv.jpg",
+remote_image_url: "http://res.cloudinary.com/supermay/image/upload/v1499595518/cputimxhopzp2lanyq0w.jpg",
 country: "US",
 is_band: false,
 website: "https://www.bobdylan.com/ ")
